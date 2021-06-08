@@ -66,7 +66,6 @@ def featured():
     jpg = jpg['href']
     featured_img = (f'{url}/{jpg}')
     featured_img
-
     return(featured_img)
 
 featured()
@@ -135,7 +134,7 @@ def mars_facts():
     table = tables[1]
     df = pd.DataFrame(table)
     mars_facts_html = df.to_html()
-    mars_facts_html = bs(mars_facts_html,"html.parser")
+    mars_facts_html = str(bs(mars_facts_html,'lxml'))
     return(mars_facts_html)
 
 
@@ -145,7 +144,7 @@ def mars_facts():
 mars_facts()
 
 
-# In[8]:
+# In[ ]:
 
 
 #url = 'https://marshemispheres.com/'
@@ -181,7 +180,7 @@ mars_facts()
 
 
 
-# In[9]:
+# In[ ]:
 
 
 def hemispheres():
@@ -202,13 +201,13 @@ def hemispheres():
     return(hemisphere_image_urls)
 
 
-# In[10]:
+# In[ ]:
 
 
 hemispheres()
 
 
-# In[11]:
+# In[ ]:
 
 
 def scrape():
@@ -219,10 +218,23 @@ def scrape():
     return(data)
 
 
-# In[12]:
+# In[ ]:
 
 
-scrape()
 
 
-# In[13]:
+# In[ ]:
+
+
+
+
+# In[ ]:
+
+
+
+
+# In[ ]:
+
+
+
+
