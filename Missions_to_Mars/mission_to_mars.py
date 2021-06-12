@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
 
 
 import pandas as pd 
@@ -13,28 +9,15 @@ import nbconvert
 import requests
 import time
 from splinter import Browser
+import json
 
-
-# In[2]:
 
 
 executable_path = {'executable_path': ChromeDriverManager().install()}
 browser = Browser('chrome', **executable_path, headless=False)
 
 
-# In[ ]:
 
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[3]:
 
 
 def mars_news():
@@ -47,13 +30,6 @@ def mars_news():
     return(f'{title}: {paragraph}')
 
 
-# In[4]:
-
-
-mars_news()
-
-
-# In[5]:
 
 
 def featured():
@@ -71,62 +47,6 @@ def featured():
 featured()
 
 
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[6]:
-
 
 def mars_facts():
     url = 'https://galaxyfacts-mars.com/'
@@ -134,53 +54,10 @@ def mars_facts():
     table = tables[1]
     df = pd.DataFrame(table)
     mars_facts_html = df.to_html()
-    mars_facts_html = str(bs(mars_facts_html,'lxml'))
+    mars_facts_html = str(bs(mars_facts_html,features="lxml"))
     return(mars_facts_html)
 
 
-# In[7]:
-
-
-mars_facts()
-
-
-# In[ ]:
-
-
-#url = 'https://marshemispheres.com/'
-#browser.visit(url)
-#html4 = browser.html
-#soup = bs(html4,"html.parser")
-#hemis = soup.find_all('div', class_='description')
-# for hemi in hemis:
-#     print(hemi.find('h3').get_text())
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
 
 
 def hemispheres():
@@ -201,39 +78,14 @@ def hemispheres():
     return(hemisphere_image_urls)
 
 
-# In[ ]:
-
-
-hemispheres()
-
-
-# In[ ]:
 
 
 def scrape():
     data = {"Title & Paragraph":mars_news(),
-            "Feautured Image":featured(),
+            "Featured Image":featured(),
             "Mars Facts": mars_facts(),
             "Hemispheres":hemispheres()}
     return(data)
-
-
-# In[ ]:
-
-
-
-
-# In[ ]:
-
-
-
-
-# In[ ]:
-
-
-
-
-# In[ ]:
 
 
 
